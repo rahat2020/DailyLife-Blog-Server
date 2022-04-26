@@ -12,7 +12,8 @@ const userRouter = require("./routes/users");
 const postRouter = require("./routes/posts");
 const catRouter = require("./routes/categories");
 
-mongoose.connect(process.env.MONGO_URL)
+const MONGO_URL =`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vatpd.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+mongoose.connect(MONGO_URL)
     .then(() => console.log('database connection established'))
     .catch(err => console.log('error connecting', err))
     
