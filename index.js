@@ -40,7 +40,12 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/posts", postRouter);
 app.use("/api/categories", catRouter);
+app.use("/", (req, res) => {
+    res.send('welcome to the server home page')
+})
 app.listen(process.env.PORT || 5000, () => {
     console.log('backend running')
 })
+
+
 
