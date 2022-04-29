@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const mongoose = require('mongoose');
 const cors = require('cors');
+app.use(cors());
 const multer = require('multer');
 const path = require('path');
 
@@ -34,7 +35,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/images", express.static(path.join(__dirname,"./images")))
 
 // the api
-app.use(cors());
+
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
@@ -49,3 +50,4 @@ app.listen(process.env.PORT || 5000, () => {
 
 
 
+// https://shrouded-ravine-20668.herokuapp.com/api/posts code deploy to the herokuapp
